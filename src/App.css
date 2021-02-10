@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+
+.food_types{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}  
+
+.food_types .card-title{
+    font-family: 'Acme', sans-serif;
+    font-size: 22px;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.spinner-border {
+    top: 200px !important;
+    left: 48% !important;
+    position: relative !important;
+    width: 5rem  !important;
+    height: 5rem !important;
+}

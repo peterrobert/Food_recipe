@@ -21,7 +21,7 @@ const categoryReducer = (state = initailState, action) => {
         }
 
         case FETCH_CATEGORIES_FAILURE: return{
-            loading: false,
+            loading: true,
             data:[],
             error: action.payload
         }

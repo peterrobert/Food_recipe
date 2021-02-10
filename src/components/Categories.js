@@ -9,7 +9,7 @@ class Categories extends Component {
   }
 
   handleDisplay = () => {
-    const { data} = this.props.categories;
+    const { data } = this.props.categories;
     let displayCategory = data.categories.map((item) => {
       return (
         <Category
@@ -21,13 +21,24 @@ class Categories extends Component {
       );
     });
 
-    return displayCategory
-  }
+    return displayCategory;
+  };
 
   render() {
     const { loading } = this.props.categories;
+    let spinners = (
+      <div className="spinner-border text-success" role="status">
+        <span className="sr-only">Loading...</span>
+      </div>
+    );
 
-    return <div>{loading === true ? "loading" : this.handleDisplay() }</div>;
+    return (
+      <div className="container">
+        <div className="row">
+          {loading === true ? spinners : this.handleDisplay()}
+        </div>
+      </div>
+    );
   }
 }
 
