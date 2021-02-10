@@ -10,7 +10,8 @@ const categoryReducer = (state = initailState, action) => {
      
     switch (action.type) {
         case FETCH_CATEGORIES: return{
-            ...state
+            ...state,
+            loading: true
         }
 
         case FETCH_CATEGORIES_SUCCESS: return{
