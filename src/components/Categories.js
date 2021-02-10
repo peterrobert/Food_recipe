@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { dataFetch } from '../redux/Actions/categoriesAction';
 
 class Categories extends Component {
     constructor(props) {
@@ -9,9 +10,12 @@ class Categories extends Component {
 
     componentDidMount() {
 
+        this.props.fetchRequest();
+
     }
 
     render() {
+       console.log(this.props)
         return (
             <div>
              hey this is the categories page
@@ -20,8 +24,18 @@ class Categories extends Component {
     }
 }
 
-Categories.propTypes = {
+const mapStateToProps = (state) => {
+    return{
+        categories: state
+    }
+}
 
-};
+const mapDispatchToProps = (dispatch) => {
+   return{
+       fetchRequest: () => (dispatch(dataFetch()))
+   }
+}
 
-export default Categories;
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Categories);
