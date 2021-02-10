@@ -21,5 +21,19 @@ const fetchFailure = (error) => {
     }
 }
 
+const fetch = (dispatch) => {
+    dispatch(fetchCategory())
+
+    fetch('https://www.themealdb.com/api/json/v1/1/categories.php')
+    .then(response => {
+        response = response.json()
+    })
+    .then(data => {
+        dispatch(fetchSuccess(data))
+    })
+    .catch(err => {
+        dispatch(fetchFailure(err))
+    });
+}
 
 export{fetchCategory, fetchFailure, fetchSuccess}
