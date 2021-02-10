@@ -4,8 +4,26 @@ import { dataFetch } from "../redux/Actions/categoriesAction";
 import Category from "./presentationComponents/Category";
 
 class Categories extends Component {
+
+  constructor(props){
+    super(props);
+
+    this.state = {
+      filter: ''
+    }
+  }
+
   componentDidMount() {
     this.props.fetchRequest();
+  }
+
+
+  handleChange = (e) => {
+   const {filterCategory} = e.target.value
+    this.setState({
+      filter: filterCategory
+    })
+
   }
 
   handleDisplay = () => {
@@ -34,7 +52,16 @@ class Categories extends Component {
 
     return (
       <div className="container">
+         <select
+            name = 'filterCategory'
+            onChange = {this.handleChange}
+          >
+           
+
+
+          </select>
         <div className="row">
+         
           {loading === true ? spinners : this.handleDisplay()}
         </div>
       </div>
