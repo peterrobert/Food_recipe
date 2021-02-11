@@ -24,7 +24,7 @@ class Categories extends Component {
   };
 
   handleDisplay = () => {
-    const { data } = this.props.categories;
+    const { data } = this.props.categories.cat;
     let displayCategory = data.categories.map((item) => {
       return (
         <Category
@@ -40,7 +40,8 @@ class Categories extends Component {
   };
 
   displayList = () => {
-    const { data } = this.props.categories;
+    const { data } = this.props.categories.cat;
+   
 
     let categoryList = data.categories.map((item) => {
       return <option key={item.idCategory}>{item.strCategory}</option>;
@@ -50,7 +51,7 @@ class Categories extends Component {
   };
 
   render() {
-    const { loading } = this.props.categories;
+    const { loading } = this.props.categories.cat;
     let spinners = (
       <div className="spinner-border text-success" role="status">
         <span className="sr-only">Loading...</span>

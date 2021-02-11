@@ -24,23 +24,19 @@ const fetchGroupFailure = (err) => {
   };
 };
 
-
 const dataGroup = (title) => {
-    return (dispatch) => {
-        dispatch(fetchGroup())
+  return (dispatch) => {
+    dispatch(fetchGroup());
 
-        fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${title}`)
-        .then((response) => response.json())
-        .then((data) => {
-          dispatch(fetchGroupSuccess(data));
-        })
-        .catch((err) => {
-          dispatch(fetchGroupFailure(err));
-        });
+    fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${title}`)
+      .then((response) => response.json())
+      .then((data) => {
+        dispatch(fetchGroupSuccess(data));
+      })
+      .catch((err) => {
+        dispatch(fetchGroupFailure(err));
+      });
+  };
+};
 
-    }
-}
-
-
-
-export{ fetchGroup, fetchGroupSuccess, fetchGroupFailure}
+export { fetchGroup, fetchGroupSuccess, fetchGroupFailure, dataGroup };
