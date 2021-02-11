@@ -18,12 +18,14 @@ class Group extends Component {
 
   handleDisplay = () => {
     const { data } = this.props.groups.grp;
+    const { params } = this.props.match
     let displayCategory = data.meals.map((item) => {
       return (
         <Variety
           key={item.idMeal}
           title={item.strMeal}
           img={item.strMealThumb}
+          urlParams ={params}
         />
       );
     });

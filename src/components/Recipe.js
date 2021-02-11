@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { dataRecipe } from '../redux/Actions/varietyAction';
 
 
 class Recipe extends Component {
@@ -8,7 +10,7 @@ class Recipe extends Component {
             match: { params },
           } = this.props;
 
-          console.log(params)
+         this.props.fetchRecipe(params.name)
     }
 
     render() {
@@ -22,8 +24,17 @@ class Recipe extends Component {
     }
 }
 
-Recipe.propTypes = {
+const mapStateToProps = (state) => {
+    return {
+      recipes: state,
+    };
+  };
+  
+  const mapDispatchToProps = (dispatch) => {
+    return {
+      fetchRecipe: (title) => dispatch(dataRecipe(title)),
+    };
+  };
 
-};
-
-export default Recipe;
+  
+export default connect(mapStateToProps, mapDispatchToProps) (Recipe);
