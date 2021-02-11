@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
 class Group extends Component {
     constructor(props) {
@@ -12,9 +11,6 @@ class Group extends Component {
         console.log(params.title)
 
     }
-
-
-
 
     render() {
         return (
