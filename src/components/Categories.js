@@ -4,27 +4,24 @@ import { dataFetch } from "../redux/Actions/categoriesAction";
 import Category from "./presentationComponents/Category";
 
 class Categories extends Component {
-
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.state = {
-      filter: ''
-    }
+      filter: "",
+    };
   }
 
   componentDidMount() {
     this.props.fetchRequest();
   }
 
-
   handleChange = (e) => {
-   const {filterCategory} = e.target.value
+    const { filterCategory } = e.target.value;
     this.setState({
-      filter: filterCategory
-    })
-
-  }
+      filter: filterCategory,
+    });
+  };
 
   handleDisplay = () => {
     const { data } = this.props.categories;
@@ -42,6 +39,16 @@ class Categories extends Component {
     return displayCategory;
   };
 
+  displayList = () => {
+    const { data } = this.props.categories;
+
+    let categoryList = data.categories.map((item) => {
+      return <option>{item.strCategory}</option>;
+    });
+
+    return categoryList;
+  };
+
   render() {
     const { loading } = this.props.categories;
     let spinners = (
@@ -52,16 +59,17 @@ class Categories extends Component {
 
     return (
       <div className="container">
-         <select
-            name = 'filterCategory'
-            onChange = {this.handleChange}
-          >
-           
-
-
-          </select>
         <div className="row">
-         
+          <div className="col-md-3">logo</div>
+
+          <div className="col-md-9">
+            <select name="filterCategory" onChange={this.handleChange}>
+              {this.displayList()}
+            </select>
+          </div>
+        </div>
+
+        <div className="row">
           {loading === true ? spinners : this.handleDisplay()}
         </div>
       </div>
