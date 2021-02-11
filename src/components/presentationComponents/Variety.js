@@ -1,5 +1,6 @@
 import React from "react";
 
+
 const Variety = (props) => {
   return (
       <div className="col-md-3 food_types">
