@@ -19,3 +19,29 @@
     width: 5rem  !important;
     height: 5rem !important;
 }
+
+.top-bar{
+    padding-top: 10px;
+    margin-bottom: 20px;
+}
+
+.top-bar select{
+    height: 35px;
+    width: 100%;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.top-bar img{
+    height: 60px;
+    margin-top: -14px;
+}
+
+.logo{
+    font-family: 'Acme', sans-serif;
+    font-size: 24px;
+    text-transform: lowercase;
+    font-weight: 800;
+    padding-left: 11px;
+
+}

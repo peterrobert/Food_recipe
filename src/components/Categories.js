@@ -43,7 +43,7 @@ class Categories extends Component {
     const { data } = this.props.categories;
 
     let categoryList = data.categories.map((item) => {
-      return <option>{item.strCategory}</option>;
+      return <option key={item.idCategory}>{item.strCategory}</option>;
     });
 
     return categoryList;
@@ -59,12 +59,14 @@ class Categories extends Component {
 
     return (
       <div className="container">
-        <div className="row">
-          <div className="col-md-3">logo</div>
-
+        <div className="row top-bar">
+          <div className="col-md-3">
+          <img src="https://live.staticflickr.com/65535/50930935963_af690b40a0_b.jpg" alt="logo" />
+          <span className='logo'>food Recipe</span>
+          </div>
           <div className="col-md-9">
             <select name="filterCategory" onChange={this.handleChange}>
-              {this.displayList()}
+              {loading === true ? 'loading...' : this.displayList()}
             </select>
           </div>
         </div>
