@@ -32,9 +32,7 @@ class Group extends Component {
   };
 
   render() {
-    console.log(this.props)
     const { loading } = this.props.groups.grp;
-    console.log(loading)
     let spinners = (
       <div className="spinner-border text-success" role="status">
         <span className="sr-only">Loading...</span>
