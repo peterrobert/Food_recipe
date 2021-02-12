@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const RecipeDisplay = (props) => {
   const [item] = props.items;
@@ -15,6 +16,11 @@ const RecipeDisplay = (props) => {
               />
               <span className="logo">food Recipe</span>
             </div>
+            <div className='col-md-9 text-right'>
+             <Link to="/">Home </Link>
+            
+            </div>
+
           </div>
           <div className="row details_row">
             <div className="col-md-12 text-center">

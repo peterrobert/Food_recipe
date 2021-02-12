@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Acme&family=Montserrat&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Acme&family=Montserrat&display=swap");
 
 .food_types {
   margin-top: 5px;
@@ -93,36 +93,59 @@
   box-shadow: -2px 6px 17px 0px rgba(0, 0, 0, 0.38);
 }
 
-.recipe-section{
-    margin-top: 180px;
+.recipe-section {
+  margin-top: 180px;
 }
 
-.recipe-section h1{
-    font-family: 'Acme', sans-serif;
-    color: #000;
-    margin-top: 10px;
-    text-transform: uppercase;
-    font-weight: 800;
-    border-bottom-right-radius: 6px;
-    width: 6%;
-    border-bottom: solid 6px green;
+.recipe-section h1 {
+  font-family: "Acme", sans-serif;
+  color: #000;
+  margin-top: 10px;
+  text-transform: uppercase;
+  font-weight: 800;
+  border-bottom-right-radius: 6px;
+  width: 6%;
+  border-bottom: solid 6px green;
 }
 
-.recipe-section p{
-    margin-top: 25px;
-    font-family: 'Montserrat', sans-serif;
-    color: #000;
-    font-weight: 600;
-    line-height: 35px;
+.recipe-section p {
+  margin-top: 25px;
+  font-family: "Montserrat", sans-serif;
+  color: #000;
+  font-weight: 600;
+  line-height: 35px;
 }
 
-.you_tube_video button{
-    font-family: 'Montserrat', sans-serif;
-    width: 100%;
-    height: 55px;
-    color: #fff;
-    text-transform: capitalize;
-    font-size: 20px;
-    font-weight: 800;
-    border: unset;
+.you_tube_video button {
+  font-family: "Montserrat", sans-serif;
+  width: 100%;
+  height: 55px;
+  color: #fff;
+  text-transform: capitalize;
+  font-size: 20px;
+  font-weight: 800;
+  border: unset;
+}
+
+.jumbotron a {
+  text-transform: capitalize;
+  font-size: 24px;
+  letter-spacing: 2px;
+  font-family: "Acme", sans-serif;
+  font-weight: 400;
+  color: #000;
+}
+
+a {
+  text-transform: capitalize;
+  font-size: 24px;
+  letter-spacing: 2px;
+  font-family: "Acme", sans-serif;
+  font-weight: 400;
+  color: #000;
+} 
+
+.jumbotron a:hover {
+  color: #fff !important;
+  text-decoration: unset !important;
 }

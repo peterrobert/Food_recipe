@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { dataGroup } from "../redux/Actions/groupAction";
 import Variety from "./presentationComponents/Variety";
+import { Link } from "react-router-dom";
 
 class Group extends Component {
   componentDidMount() {
@@ -29,6 +30,8 @@ class Group extends Component {
     return displayCategory;
   };
 
+  displayList = () => {};
+
   render() {
     const { loading } = this.props.groups.grp;
     let spinners = (
@@ -45,6 +48,9 @@ class Group extends Component {
               alt="logo"
             />
             <span className="logo">food Recipe</span>
+          </div>
+          <div className='col-md-9 text-right'>
+            <Link to="/">Home </Link>
           </div>
         </div>
         <div className="row">

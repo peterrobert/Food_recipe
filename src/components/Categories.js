@@ -83,7 +83,6 @@ class Categories extends Component {
         <span className="sr-only">Loading...</span>
       </div>
     );
-
     return (
       <div className="container">
         <div className="row top-bar">
