@@ -69,7 +69,6 @@ class Categories extends Component {
 
   displayList = () => {
     const { data } = this.props.categories.cat;
-
     let categoryList = data.categories.map((item) => {
       return <option key={item.idCategory}>{item.strCategory}</option>;
     });
@@ -97,6 +96,7 @@ class Categories extends Component {
           </div>
           <div className="col-md-9">
             <select name="filterCategory" onChange={this.handleChange}>
+              <option>All</option>
               {loading === true ? "loading..." : this.displayList()}
             </select>
           </div>
