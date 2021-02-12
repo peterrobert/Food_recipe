@@ -3,10 +3,12 @@ import categoryReducer from "./Reducers/categoryReducer";
 import thunk from "redux-thunk";
 import groupReducer from "./Reducers/groupReducer";
 import varietyReducer from "./Reducers/verietyReducer";
+import filterReducer from "./Reducers/filterReducer";
 const rootReducers = combineReducers({
   cat: categoryReducer,
   grp: groupReducer,
-  recipe:varietyReducer
+  recipe:varietyReducer,
+  filt: filterReducer
 });
 
 

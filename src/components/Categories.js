@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { dataFetch } from "../redux/Actions/categoriesAction";
+import filterCategories from "../redux/Actions/filterAction";
 import Category from "./presentationComponents/Category";
 
 class Categories extends Component {
@@ -16,25 +17,52 @@ class Categories extends Component {
     this.props.fetchRequest();
   }
 
+  componentDidUpdate() {
+    this.props.filterCat(this.state.filter);
+  }
+
   handleChange = (e) => {
-    const { filterCategory } = e.target.value;
+    const { value } = e.target;
+
     this.setState({
-      filter: filterCategory,
+      filter: value,
     });
   };
 
   handleDisplay = () => {
     const { data } = this.props.categories.cat;
-    let displayCategory = data.categories.map((item) => {
-      return (
-        <Category
-          key={item.idCategory}
-          title={item.strCategory}
-          img={item.strCategoryThumb}
-          description={item.strCategoryDescription}
-        />
-      );
-    });
+    const { filt } = this.props.categories;
+
+    let displayCategory;
+    if (filt !== "") {
+      let displayData = data.categories.filter((item) => {
+        if (item.strCategory == filt) {
+          return item;
+        }
+      });
+
+      displayCategory = displayData.map((item) => {
+        return (
+          <Category
+            key={item.idCategory}
+            title={item.strCategory}
+            img={item.strCategoryThumb}
+            description={item.strCategoryDescription}
+          />
+        );
+      });
+    } else {
+      displayCategory = data.categories.map((item) => {
+        return (
+          <Category
+            key={item.idCategory}
+            title={item.strCategory}
+            img={item.strCategoryThumb}
+            description={item.strCategoryDescription}
+          />
+        );
+      });
+    }
 
     return displayCategory;
   };
@@ -91,6 +119,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchRequest: () => dispatch(dataFetch()),
+    filterCat: (items) => dispatch(filterCategories(items)),
   };
 };
 
