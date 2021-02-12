@@ -2,7 +2,7 @@ import React from "react";
 
 const RecipeDisplay = (props) => {
   const [item] = props.items;
-  console.log(item);
+
   return (
     <div>
       <div className="jumbotron">
@@ -18,10 +18,32 @@ const RecipeDisplay = (props) => {
           </div>
           <div className="row details_row">
             <div className="col-md-12 text-center">
+              <span>{item.strCategory}</span>
+              <span>category</span>
               <h1>{item.strMeal}</h1>
               <span>{item.strArea}</span>
               <span> meal</span>
-              {/* <img src={item.strMealThumb} alt={item.strCategory}/> */}
+              <div></div>
+              <img src={item.strMealThumb} alt={item.strCategory} />
+            </div>
+          </div>
+        </div>
+      </div>
+      {/*== jumbotron end === */}
+      <div className="container recipe-section">
+        <div className="row">
+          <div className="col-md-12">
+            <div className="text-left">
+              <h1>Recipe</h1>
+            </div>
+            <div className="recipe">
+              <p>{item.strInstructions}</p>
+            </div>
+            <div className="you_tube_video text-center">
+              <button className='btn-success btn-sm' onClick= {() => {
+                  window.location.href=item.strYoutube
+
+              }}>Watch you tube video</button>
             </div>
           </div>
         </div>
