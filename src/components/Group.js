@@ -1,13 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { dataGroup } from "../redux/Actions/groupAction";
-import  Variety  from "./presentationComponents/Variety";
+import Variety from "./presentationComponents/Variety";
 
 class Group extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     const {
       match: { params },
@@ -18,14 +14,14 @@ class Group extends Component {
 
   handleDisplay = () => {
     const { data } = this.props.groups.grp;
-    const { params } = this.props.match
+    const { params } = this.props.match;
     let displayCategory = data.meals.map((item) => {
       return (
         <Variety
           key={item.idMeal}
           title={item.strMeal}
           img={item.strMealThumb}
-          urlParams ={params}
+          urlParams={params}
         />
       );
     });

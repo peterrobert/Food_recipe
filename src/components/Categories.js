@@ -41,7 +41,6 @@ class Categories extends Component {
 
   displayList = () => {
     const { data } = this.props.categories.cat;
-   
 
     let categoryList = data.categories.map((item) => {
       return <option key={item.idCategory}>{item.strCategory}</option>;
@@ -62,12 +61,15 @@ class Categories extends Component {
       <div className="container">
         <div className="row top-bar">
           <div className="col-md-3">
-          <img src="https://live.staticflickr.com/65535/50930935963_af690b40a0_b.jpg" alt="logo" />
-          <span className='logo'>food Recipe</span>
+            <img
+              src="https://live.staticflickr.com/65535/50930935963_af690b40a0_b.jpg"
+              alt="logo"
+            />
+            <span className="logo">food Recipe</span>
           </div>
           <div className="col-md-9">
             <select name="filterCategory" onChange={this.handleChange}>
-              {loading === true ? 'loading...' : this.displayList()}
+              {loading === true ? "loading..." : this.displayList()}
             </select>
           </div>
         </div>
