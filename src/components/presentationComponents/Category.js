@@ -1,5 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 const Category = (props) => {
   const history = useHistory();
@@ -21,6 +22,10 @@ const Category = (props) => {
       </div>
     </div>
   );
+};
+
+Category.propTypes = {
+  title: PropTypes.string
 };
 
 export default Category;
