@@ -1,15 +1,15 @@
-import FILTER_CATEGORIES from "../Types/filterTypes";
+import FILTER_CATEGORIES from '../Types/filterTypes';
 
 const initialState = {
-    filtering: ''
-}
+  filtering: '',
+};
 
-const filterReducer = ( state = initialState, action) => {
-     switch (action.type) {
-         case FILTER_CATEGORIES:return ( action.payload === 'All' ? '' : action.payload )
-     
-         default: return state
-     }
-}
+const filterReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case FILTER_CATEGORIES: return (action.payload === 'All' ? '' : action.payload);
 
-export default filterReducer
+    default: return state;
+  }
+};
+
+export default filterReducer;

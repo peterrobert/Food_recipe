@@ -2,12 +2,12 @@ import {
   FETCH_VARIETY,
   FETCH_VARIETY_SUCCESS,
   FETCH_VARIETY_FAILURE,
-} from "../Types/varietyTypes";
+} from '../Types/varietyTypes';
 
 const initailState = {
   loading: true,
   data: [],
-  error: "",
+  error: '',
 };
 
 const varietyReducer = (state = initailState, action) => {
@@ -22,7 +22,7 @@ const varietyReducer = (state = initailState, action) => {
       return {
         loading: false,
         data: action.payload,
-        error: "",
+        error: '',
       };
 
     case FETCH_VARIETY_FAILURE:
@@ -37,4 +37,4 @@ const varietyReducer = (state = initailState, action) => {
   }
 };
 
-export default varietyReducer
+export default varietyReducer;

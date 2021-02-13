@@ -1,12 +1,12 @@
-import React from "react";
-import { useHistory } from "react-router-dom";
+import React from 'react';
+import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const Category = (props) => {
+const Category = props => {
   const history = useHistory();
 
   const handleClick = () => {
-    let itemRoute = props.title;
+    const itemRoute = props.title;
     history.push(`/groups/${itemRoute}`);
   };
   return (
@@ -25,7 +25,8 @@ const Category = (props) => {
 };
 
 Category.propTypes = {
-  title: PropTypes.string
+  img: PropTypes.any,
+  title: PropTypes.string,
 };
 
 export default Category;

@@ -1,31 +1,30 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { dataGroup } from "../redux/Actions/groupAction";
-import Variety from "./presentationComponents/Variety";
-import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { dataGroup } from '../redux/Actions/groupAction';
+import Variety from './presentationComponents/Variety';
 
 class Group extends Component {
   componentDidMount() {
     const {
       match: { params },
     } = this.props;
-    let titl = params.title;
+    const titl = params.title;
     this.props.fetchRequestGroups(titl);
   }
 
   handleDisplay = () => {
     const { data } = this.props.groups.grp;
     const { params } = this.props.match;
-    let displayCategory = data.meals.map((item) => {
-      return (
-        <Variety
-          key={item.idMeal}
-          title={item.strMeal}
-          img={item.strMealThumb}
-          urlParams={params}
-        />
-      );
-    });
+    const displayCategory = data.meals.map(item => (
+      <Variety
+        key={item.idMeal}
+        title={item.strMeal}
+        img={item.strMealThumb}
+        urlParams={params}
+      />
+    ));
 
     return displayCategory;
   };
@@ -34,7 +33,7 @@ class Group extends Component {
 
   render() {
     const { loading } = this.props.groups.grp;
-    let spinners = (
+    const spinners = (
       <div className="spinner-border text-success" role="status">
         <span className="sr-only">Loading...</span>
       </div>
@@ -49,7 +48,7 @@ class Group extends Component {
             />
             <span className="logo">food Recipe</span>
           </div>
-          <div className='col-md-9 text-right'>
+          <div className="col-md-9 text-right">
             <Link to="/">Home </Link>
           </div>
         </div>
@@ -61,16 +60,29 @@ class Group extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    groups: state,
-  };
+Group.propTypes = {
+  fetchRequestGroups: PropTypes.func,
+  groups: PropTypes.shape({
+    grp: PropTypes.shape({
+      data: PropTypes.shape({
+        meals: PropTypes.shape({
+          map: PropTypes.func,
+        }),
+      }),
+      loading: PropTypes.bool,
+    }),
+  }),
+  match: PropTypes.shape({
+    params: PropTypes.any,
+  }),
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    fetchRequestGroups: (title) => dispatch(dataGroup(title)),
-  };
-};
+const mapStateToProps = state => ({
+  groups: state,
+});
+
+const mapDispatchToProps = dispatch => ({
+  fetchRequestGroups: title => dispatch(dataGroup(title)),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Group);

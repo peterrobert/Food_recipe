@@ -1,11 +1,12 @@
-import React from "react";
-import { useHistory } from "react-router-dom";
+import PropTypes from 'prop-types';
+import React from 'react';
+import { useHistory } from 'react-router-dom';
 
-const Variety = (props) => {
+const Variety = props => {
   const history = useHistory();
   const handleClick = () => {
-    let groupRoute = props.urlParams.title;
-    let recipeRoute = props.title;
+    const groupRoute = props.urlParams.title;
+    const recipeRoute = props.title;
     history.push(`/groups/${groupRoute}/${recipeRoute}`);
   };
 
@@ -22,6 +23,14 @@ const Variety = (props) => {
       </div>
     </div>
   );
+};
+
+Variety.propTypes = {
+  img: PropTypes.any,
+  title: PropTypes.any,
+  urlParams: PropTypes.shape({
+    title: PropTypes.any,
+  }),
 };
 
 export default Variety;

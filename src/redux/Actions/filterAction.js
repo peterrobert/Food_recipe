@@ -1,10 +1,8 @@
-import FILTER_CATEGORIES from "../Types/filterTypes"
+import FILTER_CATEGORIES from '../Types/filterTypes';
 
-const filterCategories = (categories) => {
-    return{
-        type: FILTER_CATEGORIES,
-        payload: categories
-    }
-}
+const filterCategories = categories => ({
+  type: FILTER_CATEGORIES,
+  payload: categories,
+});
 
-export default filterCategories
+export default filterCategories;

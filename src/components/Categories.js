@@ -1,15 +1,16 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { dataFetch } from "../redux/Actions/categoriesAction";
-import filterCategories from "../redux/Actions/filterAction";
-import Category from "./presentationComponents/Category";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { dataFetch } from '../redux/Actions/categoriesAction';
+import filterCategories from '../redux/Actions/filterAction';
+import Category from './presentationComponents/Category';
 
 class Categories extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      filter: "",
+      filter: '',
     };
   }
 
@@ -21,7 +22,7 @@ class Categories extends Component {
     this.props.filterCat(this.state.filter);
   }
 
-  handleChange = (e) => {
+  handleChange = e => {
     const { value } = e.target;
 
     this.setState({
@@ -34,34 +35,30 @@ class Categories extends Component {
     const { filt } = this.props.categories;
 
     let displayCategory;
-    if (filt !== "") {
-      let displayData = data.categories.filter((item) => {
+    if (filt !== '') {
+      const displayData = data.categories.filter(item => {
         if (item.strCategory == filt) {
           return item;
         }
       });
 
-      displayCategory = displayData.map((item) => {
-        return (
-          <Category
-            key={item.idCategory}
-            title={item.strCategory}
-            img={item.strCategoryThumb}
-            description={item.strCategoryDescription}
-          />
-        );
-      });
+      displayCategory = displayData.map(item => (
+        <Category
+          key={item.idCategory}
+          title={item.strCategory}
+          img={item.strCategoryThumb}
+          description={item.strCategoryDescription}
+        />
+      ));
     } else {
-      displayCategory = data.categories.map((item) => {
-        return (
-          <Category
-            key={item.idCategory}
-            title={item.strCategory}
-            img={item.strCategoryThumb}
-            description={item.strCategoryDescription}
-          />
-        );
-      });
+      displayCategory = data.categories.map(item => (
+        <Category
+          key={item.idCategory}
+          title={item.strCategory}
+          img={item.strCategoryThumb}
+          description={item.strCategoryDescription}
+        />
+      ));
     }
 
     return displayCategory;
@@ -69,16 +66,14 @@ class Categories extends Component {
 
   displayList = () => {
     const { data } = this.props.categories.cat;
-    let categoryList = data.categories.map((item) => {
-      return <option key={item.idCategory}>{item.strCategory}</option>;
-    });
+    const categoryList = data.categories.map(item => <option key={item.idCategory}>{item.strCategory}</option>);
 
     return categoryList;
   };
 
   render() {
     const { loading } = this.props.categories.cat;
-    let spinners = (
+    const spinners = (
       <div className="spinner-border text-success" role="status">
         <span className="sr-only">Loading...</span>
       </div>
@@ -96,7 +91,7 @@ class Categories extends Component {
           <div className="col-md-9">
             <select name="filterCategory" onChange={this.handleChange}>
               <option>All</option>
-              {loading === true ? "loading..." : this.displayList()}
+              {loading === true ? 'loading...' : this.displayList()}
             </select>
           </div>
         </div>
@@ -109,17 +104,30 @@ class Categories extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    categories: state,
-  };
+Categories.propTypes = {
+  categories: PropTypes.shape({
+    cat: PropTypes.shape({
+      data: PropTypes.shape({
+        categories: PropTypes.shape({
+          filter: PropTypes.func,
+          map: PropTypes.func,
+        }),
+      }),
+      loading: PropTypes.bool,
+    }),
+    filt: PropTypes.string,
+  }),
+  fetchRequest: PropTypes.func,
+  filterCat: PropTypes.func,
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    fetchRequest: () => dispatch(dataFetch()),
-    filterCat: (items) => dispatch(filterCategories(items)),
-  };
-};
+const mapStateToProps = state => ({
+  categories: state,
+});
+
+const mapDispatchToProps = dispatch => ({
+  fetchRequest: () => dispatch(dataFetch()),
+  filterCat: items => dispatch(filterCategories(items)),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Categories);

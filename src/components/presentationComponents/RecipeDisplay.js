@@ -1,7 +1,8 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-const RecipeDisplay = (props) => {
+const RecipeDisplay = props => {
   const [item] = props.items;
 
   return (
@@ -16,9 +17,9 @@ const RecipeDisplay = (props) => {
               />
               <span className="logo">food Recipe</span>
             </div>
-            <div className='col-md-9 text-right'>
-             <Link to="/">Home </Link>
-            
+            <div className="col-md-9 text-right">
+              <Link to="/">Home </Link>
+
             </div>
 
           </div>
@@ -29,13 +30,13 @@ const RecipeDisplay = (props) => {
               <h1>{item.strMeal}</h1>
               <span>{item.strArea}</span>
               <span> meal</span>
-              <div></div>
+              <div />
               <img src={item.strMealThumb} alt={item.strCategory} />
             </div>
           </div>
         </div>
       </div>
-      {/*== jumbotron end === */}
+      {/*= = jumbotron end === */}
       <div className="container recipe-section">
         <div className="row">
           <div className="col-md-12">
@@ -46,16 +47,24 @@ const RecipeDisplay = (props) => {
               <p>{item.strInstructions}</p>
             </div>
             <div className="you_tube_video text-center">
-              <button className='btn-success btn-sm' onClick= {() => {
-                  window.location.href=item.strYoutube
-
-              }}>Watch you tube video</button>
+              <button
+                className="btn-success btn-sm"
+                onClick={() => {
+                  window.location.href = item.strYoutube;
+                }}
+              >
+                Watch you tube video
+              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
   );
+};
+
+RecipeDisplay.propTypes = {
+  items: PropTypes.any,
 };
 
 export default RecipeDisplay;
