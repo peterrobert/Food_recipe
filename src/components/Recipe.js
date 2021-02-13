@@ -12,6 +12,7 @@ class Recipe extends Component {
     this.props.fetchRecipe(params.name);
   }
 
+
   render() {
     const { loading } = this.props.recipes.recipe;
     let spinners = (
