@@ -88,9 +88,9 @@
 .details_row img {
   height: 270px;
   margin-top: 80px;
-  -webkit-box-shadow: -2px 6px 17px 0px rgba(0, 0, 0, 0.38);
-  -moz-box-shadow: -2px 6px 17px 0px rgba(0, 0, 0, 0.38);
-  box-shadow: -2px 6px 17px 0px rgba(0, 0, 0, 0.38);
+  -webkit-box-shadow: -2px 6px 17px 0 rgba(0, 0, 0, 0.38);
+  -moz-box-shadow: -2px 6px 17px 0 rgba(0, 0, 0, 0.38);
+  box-shadow: -2px 6px 17px 0 rgba(0, 0, 0, 0.38);
 }
 
 .recipe-section {
@@ -127,7 +127,7 @@
   border: unset;
 }
 
-.jumbotron a {
+a {
   text-transform: capitalize;
   font-size: 24px;
   letter-spacing: 2px;
@@ -136,14 +136,14 @@
   color: #000;
 }
 
-a {
+.jumbotron a {
   text-transform: capitalize;
   font-size: 24px;
   letter-spacing: 2px;
   font-family: "Acme", sans-serif;
   font-weight: 400;
   color: #000;
-} 
+}
 
 .jumbotron a:hover {
   color: #fff !important;
