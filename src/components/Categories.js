@@ -1,3 +1,11 @@
+/* eslint-disable max-len, jsx-a11y/img-redundant-alt,
+react/require-default-props,
+react/destructuring-assignment,
+react/button-has-type,
+react/forbid-prop-types,
+ array-callback-return,
+ consistent-return
+ */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -15,11 +23,14 @@ class Categories extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchRequest();
+    const { fetchRequest } = this.props;
+    fetchRequest();
   }
 
   componentDidUpdate() {
-    this.props.filterCat(this.state.filter);
+    const { filterCat } = this.props;
+    const { filter } = this.state;
+    filterCat(filter);
   }
 
   handleChange = e => {
@@ -36,8 +47,9 @@ class Categories extends Component {
 
     let displayCategory;
     if (filt !== '') {
-      const displayData = data.categories.filter(item => {
-        if (item.strCategory == filt) {
+      const { categories } = data;
+      const displayData = categories.filter(item => {
+        if (item.strCategory === filt) {
           return item;
         }
       });
@@ -66,7 +78,9 @@ class Categories extends Component {
 
   displayList = () => {
     const { data } = this.props.categories.cat;
-    const categoryList = data.categories.map(item => <option key={item.idCategory}>{item.strCategory}</option>);
+    const categoryList = data.categories.map(item => (
+      <option key={item.idCategory}>{item.strCategory}</option>
+    ));
 
     return categoryList;
   };

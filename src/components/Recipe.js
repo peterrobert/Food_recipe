@@ -1,3 +1,10 @@
+/* eslint-disable max-len,
+jsx-a11y/img-redundant-alt,
+react/require-default-props,
+react/destructuring-assignment,
+react/button-has-type,
+react/prop-types,
+react/forbid-prop-types */
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';

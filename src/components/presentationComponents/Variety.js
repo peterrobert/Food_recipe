@@ -1,3 +1,5 @@
+/* eslint-disable max-len, jsx-a11y/img-redundant-alt
+, react/require-default-props, react/destructuring-assignment, react/button-has-type, react/forbid-prop-types */
 import PropTypes from 'prop-types';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
@@ -27,9 +29,9 @@ const Variety = props => {
 
 Variety.propTypes = {
   img: PropTypes.any,
-  title: PropTypes.any,
+  title: PropTypes.string,
   urlParams: PropTypes.shape({
-    title: PropTypes.any,
+    title: PropTypes.string,
   }),
 };
 

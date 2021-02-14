@@ -1,3 +1,5 @@
+/* eslint-disable max-len, jsx-a11y/img-redundant-alt
+, react/require-default-props, react/destructuring-assignment, react/button-has-type, react/forbid-prop-types */
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Link } from 'react-router-dom';
