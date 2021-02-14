@@ -3,7 +3,7 @@
 > The aim of this project is to create an application that shows the recipes of all foods around the world. The project is built in react and redux. The data is being processed from an API end point.
 
 
-![screenshot](recipe.jpg)
+![screenshot](recipe.png)
 
 
 ## Built With
