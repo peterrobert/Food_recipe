@@ -5,11 +5,11 @@ react/destructuring-assignment,
 react/button-has-type,
 react/prop-types,
 react/forbid-prop-types */
-import PropTypes from 'prop-types';
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { dataRecipe } from '../redux/Actions/varietyAction';
-import RecipeDisplay from './presentationComponents/RecipeDisplay';
+import PropTypes from "prop-types";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { dataRecipe } from "../redux/Actions/varietyAction";
+import RecipeDisplay from "./presentationComponents/RecipeDisplay";
 
 class Recipe extends Component {
   componentDidMount() {
@@ -42,22 +42,16 @@ class Recipe extends Component {
 
 Recipe.propTypes = {
   fetchRecipe: PropTypes.func,
-  recipes: PropTypes.shape({
-    recipe: PropTypes.shape({
-      data: PropTypes.shape({
-        meals: PropTypes.any,
-      }),
-      loading: PropTypes.bool,
-    }),
-  }),
+  meals: PropTypes.any,
+  loading: PropTypes.bool,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   recipes: state,
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchRecipe: title => dispatch(dataRecipe(title)),
+const mapDispatchToProps = (dispatch) => ({
+  fetchRecipe: (title) => dispatch(dataRecipe(title)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Recipe);

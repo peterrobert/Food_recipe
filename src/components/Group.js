@@ -1,11 +1,11 @@
 /* eslint-disable max-len, jsx-a11y/img-redundant-alt
 , react/require-default-props, react/destructuring-assignment, react/button-has-type, react/forbid-prop-types */
-import PropTypes from 'prop-types';
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { dataGroup } from '../redux/Actions/groupAction';
-import Variety from './presentationComponents/Variety';
+import PropTypes from "prop-types";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import { dataGroup } from "../redux/Actions/groupAction";
+import Variety from "./presentationComponents/Variety";
 
 class Group extends Component {
   componentDidMount() {
@@ -19,7 +19,7 @@ class Group extends Component {
   handleDisplay = () => {
     const { data } = this.props.groups.grp;
     const { params } = this.props.match;
-    const displayCategory = data.meals.map(item => (
+    const displayCategory = data.meals.map((item) => (
       <Variety
         key={item.idMeal}
         title={item.strMeal}
@@ -64,27 +64,18 @@ class Group extends Component {
 
 Group.propTypes = {
   fetchRequestGroups: PropTypes.func,
-  groups: PropTypes.shape({
-    grp: PropTypes.shape({
-      data: PropTypes.shape({
-        meals: PropTypes.shape({
-          map: PropTypes.func,
-        }),
-      }),
-      loading: PropTypes.bool,
-    }),
-  }),
+  loading: PropTypes.bool,
   match: PropTypes.shape({
     params: PropTypes.any,
   }),
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   groups: state,
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchRequestGroups: title => dispatch(dataGroup(title)),
+const mapDispatchToProps = (dispatch) => ({
+  fetchRequestGroups: (title) => dispatch(dataGroup(title)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Group);
