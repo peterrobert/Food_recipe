@@ -124,16 +124,17 @@ Categories.propTypes = {
       data: PropTypes.shape({
         categories: PropTypes.shape({
           filter: PropTypes.func,
-          map: PropTypes.func,
-        }),
+          map: PropTypes.func
+        })
       }),
-      loading: PropTypes.bool,
+      loading: PropTypes.bool
     }),
-    filt: PropTypes.string,
+    filt: PropTypes.string
   }),
   fetchRequest: PropTypes.func,
-  filterCat: PropTypes.func,
-};
+  filterCat: PropTypes.func
+}
+
 
 const mapStateToProps = state => ({
   categories: state,

@@ -44,6 +44,14 @@ You will also see any lint errors in the console.
 
    [Live Demo Link](https://frozen-citadel-40227.herokuapp.com/)
 
+- Redux presentation video.
+
+ [Live Demo Link](https://youtu.be/qDqMxwyzPPk)
+
+- Programming Presentation video.
+
+[Live Demo Link](https://youtu.be/gpvd9b816eQ)
+
 
 ## Authors  ![Hireable](https://img.shields.io/badge/HIREABLE-YES-yellowgreen&?style=for-the-badge)
 
