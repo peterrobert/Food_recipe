@@ -8,8 +8,8 @@ react/forbid-prop-types */
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { dataRecipe } from '../redux/Actions/varietyAction';
-import RecipeDisplay from './presentationComponents/RecipeDisplay';
+import { dataRecipe } from '../../redux/Actions/varietyAction';
+import RecipeDisplay from '../presentationComponents/RecipeDisplay';
 
 class Recipe extends Component {
   componentDidMount() {

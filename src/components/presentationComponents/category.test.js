@@ -20,4 +20,16 @@ describe('Category Component', () => {
     const renderContainer = container.find('.card-title');
     expect(renderContainer.length).toEqual(1);
   });
+
+  it('should render a card without errors', () => {
+    const container = shallow(<Category />);
+    const renderContainer = container.find('.card');
+    expect(renderContainer.length).toEqual(1);
+  });
+
+  it('should render a column without errors', () => {
+    const container = shallow(<Category />);
+    const renderContainer = container.find('.col-md-3');
+    expect(renderContainer.length).toEqual(1);
+  });
 });
