@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { dataGroup } from '../redux/Actions/groupAction';
-import Variety from './presentationComponents/Variety';
+import { dataGroup } from '../../redux/Actions/groupAction';
+import Variety from '../presentationComponents/Variety';
 
 class Group extends Component {
   componentDidMount() {

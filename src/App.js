@@ -1,8 +1,8 @@
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
-import Categories from './components/Categories';
-import Group from './components/Group';
-import Recipe from './components/Recipe';
+import Categories from './components/containers/Categories';
+import Group from './components/containers/Group';
+import Recipe from './components/containers/Recipe';
 
 function App() {
   return (

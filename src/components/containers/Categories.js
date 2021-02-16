@@ -9,9 +9,9 @@ react/forbid-prop-types,
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { dataFetch } from '../redux/Actions/categoriesAction';
-import filterCategories from '../redux/Actions/filterAction';
-import Category from './presentationComponents/Category';
+import { dataFetch } from '../../redux/Actions/categoriesAction';
+import filterCategories from '../../redux/Actions/filterAction';
+import Category from '../presentationComponents/Category';
 
 class Categories extends Component {
   constructor(props) {
